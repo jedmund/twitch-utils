@@ -7,7 +7,7 @@ class LiveTray extends Component {
         console.log(`Got it! Moving by ${yPos}`)
         console.log(this.refs)
         this.refs['live-indicator'].setState({
-            marginTop: `calc(${yPos}px - 48px - (100vh / 20) + (2rem / 2.6))`
+            marginTop: `calc(${yPos}px - 48px - (100vh / 20) + (2rem / 2))`
         })
     }
 
