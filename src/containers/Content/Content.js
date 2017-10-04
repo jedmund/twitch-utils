@@ -1,33 +1,37 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import Wrapper from 'containers/Wrapper/Wrapper'
 import Header from 'components/Header/Header'
 import ScheduleItem from 'components/ScheduleItem/ScheduleItem'
 import LiveTray from "containers/LiveTray/LiveTray"
+import Player from 'containers/Player/Player'
 import moment from 'moment'
-import './Schedule.css'
+import './Content.css'
 
-class Schedule extends Component {
+class Content extends Component {
     activities() {
         const scheduleData = [
             {
                 "activity": "Designing comments",
-                "datetime": "2017-10-01T23:00:00",
+                "datetime": "2017-10-02T20:00:00",
+                "type"    : "Design",
                 "active"  : false
             },
             {
                 "activity": "Re-implementing Today feed",
-                "datetime": "2017-10-02T02:00:00",
+                "datetime": "2017-10-02T22:00:00",
+                "type"    : "Code",
                 "active"  : false
             },
             {
                 "activity": "Cuphead",
-                "datetime": "2017-10-02T04:00:00",
+                "datetime": "2017-10-02T23:00:00",
+                "type"    : "Game",
                 "active"  : false
             },
             {
                 "activity": "Blue Reflection",
-                "datetime": "2017-10-02T05:30:00",
+                "datetime": "2017-10-03T00:30:00",
+                "type"    : "Game",
                 "active"  : false
             }
         ]
@@ -41,12 +45,13 @@ class Schedule extends Component {
 
         return activities.map((activity, i) => {
             const activityTime = moment(activity.datetime)
-            const nextActivityTime = (i + 1 < activities.length) ? moment(activities[i + 1].datetime) : now.add(6, 'hours')
+            const nextActivityTime = (i + 1 < activities.length) ? moment(activities[i + 1].datetime) : now.clone().add(6, 'hours')
             const isActive = now.isAfter(activityTime) && now.isBefore(nextActivityTime)
             return (
                 <ScheduleItem
                     name={activity.activity}
                     datetime={activity.datetime}
+                    type={activity.type}
                     active={isActive}
                     key={activity.activity}
                     ref={`activity-${i}`}
@@ -69,12 +74,15 @@ class Schedule extends Component {
 
     render() {
         return (
-            <ul className="Schedule">
+            <ul className="Content">
                 <LiveTray ref='live-tray'/>
-                <Wrapper>
+                <div className="wrapper">
                     <Header>Live soon.</Header>
-                    {this.schedule()}
-                </Wrapper>
+                    <div className="schedule">
+                        {this.schedule()}
+                    </div>
+                    <Player/>
+                </div>
             </ul>
         );
     }
@@ -84,4 +92,4 @@ class Schedule extends Component {
     }
 }
 
-export default Schedule
+export default Content

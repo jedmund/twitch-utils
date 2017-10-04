@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Schedule from 'containers/Schedule/Schedule'
+import Content from 'containers/Content/Content'
 
 import './Page.css'
 
@@ -7,10 +7,10 @@ class Page extends Component {
     render() {
         return (
             <div className="Page">
-                <Schedule/>
+                <Content/>
             </div>
         );
     }
 }
 
-export default Page;
+export default Page
