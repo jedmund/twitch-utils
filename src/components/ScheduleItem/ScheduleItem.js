@@ -9,6 +9,7 @@ class ScheduleItem extends Component {
         return (
             <li className="ScheduleItem">
                 <Moment className="ScheduleTime" format="HH:mm">{this.props.datetime}</Moment>
+                <div className="ScheduleType">{this.props.type}</div>
                 <div className="ScheduleActivity">{this.props.name}</div>
             </li>
         );
@@ -18,6 +19,7 @@ class ScheduleItem extends Component {
 ScheduleItem.propTypes = {
     active:   PropTypes.bool,
     name:     PropTypes.string,
+    type:     PropTypes.string,
     datetime: PropTypes.string,
 };
 
