@@ -29,3 +29,8 @@ src/*/*/*.css
 src/*.css
 
 .idea/
+src/data/SwinsianHelper.app/*
+*.log
+src/data/now-playing.jpg
+src/data/now-playing.json
+src/index.css
