@@ -71,6 +71,7 @@ class Content extends Component {
             if (item.props.active) {
                 const domNode = ReactDOM.findDOMNode(item)
                 const boundingRect = domNode.getBoundingClientRect()
+                console.log(boundingRect)
                 this.refs['live-tray'].moveIndicator(boundingRect.top)
             }
         })
@@ -91,6 +92,7 @@ class Content extends Component {
 
     componentDidMount() {
         this.sendPosition()
+        window.addEventListener("resize", this.sendPosition.bind(this))
     }
 }
 
