@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
-import './TrackInfo.css'
+import './TrackInfo.sass'
 
 class TrackInfo extends Component {
     render() {
-        return (
-            <h3 className="TrackInfo">{this.props[this.props.trackAttribute]}</h3>
-        );
+        return <h3 {...this.props} className="TrackInfo" />
     }
 }
 
