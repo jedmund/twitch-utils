@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import Anime from 'react-anime';
-import './LiveIndicator.css';
+import React, { Component } from 'react'
+import Anime from 'react-anime'
+import './LiveIndicator.sass'
 
 class LiveIndicator extends Component {
     constructor() {
@@ -11,13 +11,14 @@ class LiveIndicator extends Component {
     }
     render() {
         return (
-            <Anime direction={"alternate"}
-                   opacity={[1.0, 0.0]}
-                   loop={true}>
-                <div className="LiveIndicator" style={{marginTop: this.state.marginTop}}/>
+            <Anime direction={'alternate'} opacity={[1.0, 0.0]} loop={true}>
+                <div
+                    className="LiveIndicator"
+                    style={{ marginTop: this.state.marginTop }}
+                />
             </Anime>
-        );
+        )
     }
 }
 
-export default LiveIndicator;
+export default LiveIndicator

@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import LiveIndicator from 'components/LiveIndicator/LiveIndicator'
-import './LiveTray.css';
+import './LiveTray.sass'
 
 class LiveTray extends Component {
     moveIndicator(yPos) {
@@ -14,10 +14,10 @@ class LiveTray extends Component {
     render() {
         return (
             <div className="LiveTray">
-                <LiveIndicator ref="live-indicator"/>
+                <LiveIndicator ref="live-indicator" />
             </div>
-        );
+        )
     }
 }
 
-export default LiveTray;
+export default LiveTray

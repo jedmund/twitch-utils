@@ -1,26 +1,30 @@
 import React, { Component } from 'react'
 import AlbumArt from 'components/AlbumArt/AlbumArt'
 import TrackInfo from 'containers/TrackInfo/TrackInfo'
-import Fetch from 'react-fetch'
-import './Player.css'
+import './Player.sass'
+
+import nowPlayingData from 'data/now-playing.json'
+import nowPlayingImage from 'data/now-playing.jpg'
 
 class Player extends Component {
     render() {
         return (
             <div className="Player">
-                <Fetch url="http://127.0.0.1:31338/now-playing.jpg">
-                    <AlbumArt/>
-                </Fetch>
+                <div className="AlbumArt">
+                    <img
+                        className="Artwork"
+                        src={nowPlayingImage}
+                        alt="Album art"
+                    />
+                </div>
                 <div className="info">
-                    <Fetch url="http://127.0.0.1:31338/now-playing.json">
-                        <TrackInfo trackAttribute="title"/>
-                        <TrackInfo trackAttribute="artist"/>
-                        <TrackInfo trackAttribute="album"/>
-                    </Fetch>
+                    <TrackInfo>{nowPlayingData.title}</TrackInfo>
+                    <TrackInfo>{nowPlayingData.artist}</TrackInfo>
+                    <TrackInfo>{nowPlayingData.album}</TrackInfo>
                 </div>
             </div>
-        );
+        )
     }
 }
 
-export default Player;
+export default Player
